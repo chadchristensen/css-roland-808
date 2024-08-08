@@ -6,7 +6,7 @@ type ChannelLabelProps = {
 
 function ChannelLabel({ children }: ChannelLabelProps) {
     return (
-        <span className="uppercase bg-yellow-100 rounded py-1 px-2 mx-1 text-[8px]">{children}</span>
+        <span className="uppercase bg-yellow-100 rounded py-1 px-2 mx-1 text-[6px]">{children}</span>
     )
 }
 

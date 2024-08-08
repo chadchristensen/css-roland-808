@@ -9,7 +9,7 @@
 
   color-scheme: light dark;
   color: #213547;
-  background-color: #ffffff;
+  background: radial-gradient(#ffffff, #e5e5f7);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

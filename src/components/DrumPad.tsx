@@ -1,16 +1,15 @@
-import { useState } from "react";
 import LightIndicator from "./LightIndicator";
 
 type DrumPadProps = {
     color: string;
+    idx: number
 }
 
-function DrumPad({ color }: DrumPadProps) {
-    // const [isActive, setIsActive] = useState(false);
+function DrumPad({ color, idx }: DrumPadProps) {
 
     return (
         <button className={`w-9 h-16 rounded-sm ${color}`}>
-            <LightIndicator className="translate-y-[-20px]" />
+            <LightIndicator className={`translate-y-[-20px] light light-delay-${idx}`} />
         </button>
     )
 }
