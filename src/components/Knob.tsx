@@ -1,14 +1,16 @@
 type KnobProps = {
+    className?: string,
     label?: string,
+    labelPosition?: 'top' | 'bottom',
     labelTextSize?: string,
     bodyColor: string,
     diameter?: number,
     indicatorColor?: string,
-    ringColor: string,
-    ringWidth: string
+    ringColor?: string,
+    ringRadiusPercentage?: string
 }
 
-function Knob({ bodyColor, label, indicatorColor = '#000', diameter = 6, labelTextSize = 'text-xs', ringWidth = '14', ringColor = 'black' }: KnobProps) {
+function Knob({ bodyColor, className, label, labelPosition = 'top', indicatorColor = '#000', diameter = 6, labelTextSize = 'text-[8px]', ringRadiusPercentage = '55%', ringColor = 'black' }: KnobProps) {
     let knobSize: string;
 
     switch (diameter) {
@@ -21,12 +23,11 @@ function Knob({ bodyColor, label, indicatorColor = '#000', diameter = 6, labelTe
         default:
             knobSize = 'w-4 h-4';
             break;
-
     }
 
     return (
-        <div className="flex flex-col items-center gap-1">
-            {label ? <span className={`uppercase text-white ${labelTextSize}`}>{label}</span> : null}
+        <div className={`flex ${labelPosition === 'top' ? 'flex-col' : 'flex-col-reverse'} items-center gap-1 ${className}`}>
+            {label ? <span className={`uppercase text-gray-200 ${labelTextSize} font-semibold`}>{label}</span> : null}
             <svg className={knobSize + ' overflow-visible'} viewBox="0 0 200 200">
                 <filter>
                     <feTurbulence
@@ -39,7 +40,7 @@ function Knob({ bodyColor, label, indicatorColor = '#000', diameter = 6, labelTe
                 <circle
                     cx="50%"
                     cy="50%"
-                    r="55%"
+                    r={ringRadiusPercentage}
                     fill={ringColor}
                 />
                 <circle
