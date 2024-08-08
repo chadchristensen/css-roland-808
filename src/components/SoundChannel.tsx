@@ -1,9 +1,7 @@
-import ChannelLabel from "./ChannelLabel";
-import Knob from "./Knob";
-
+import { ReactNode } from "react";
 
 type SoundChannelProps = {
-    children?: any
+    children?: ReactNode
 }
 
 function SoundChannel({ children }: SoundChannelProps) {
